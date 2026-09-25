@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 1240" width="1560" height="1240" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 28px; font-weight: 700; fill: #1b1b1b; }
+      .sub   { font-size: 15px; fill: #555; }
+      .bh    { font-size: 19px; font-weight: 700; fill: #fff; }
+      .bs    { font-size: 13.5px; fill: #e6e6e6; }
+      .pl    { font-size: 15px; fill: #1b1b1b; }
+      .plw   { font-size: 15px; fill: #fff; }
+      .note  { font-size: 14px; fill: #333; }
+      .noteb { font-size: 16px; font-weight: 700; fill: #1b1b1b; }
+      .small { font-size: 13px; fill: #555; }
+      .v33 { stroke: #e67e22; }
+      .v5  { stroke: #c0392b; }
+      .sig { stroke: #2e86c1; }
+      .gnd { stroke: #222; }
+      .load{ stroke: #8e44ad; }
+      .w   { stroke-width: 2.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1560" height="1240" fill="#ffffff"/>
+
+  <text class="title" x="40" y="52">Smart Room Controller: Pin-by-Pin Wiring (LD2410 radar)</text>
+  <text class="sub" x="40" y="80">ESP32 DevKit V1 · HLK-LD2410 / B / C radar · DHT22 · 2-channel relay (active-LOW) · LED + 220Ω · 12V DC fan</text>
+
+  <!-- ============ LD2410 ============ -->
+  <rect x="40" y="120" width="400" height="270" rx="12" fill="#0f5c4d"/>
+  <text class="bh" x="62" y="152">HLK-LD2410 Radar</text>
+  <text class="bs" x="62" y="175">24GHz mmWave presence · UART 256000 baud</text>
+  <text class="bs" x="62" y="195">5V supply (≥200 mA) · 3.3V logic</text>
+  <text class="plw" x="418" y="245" text-anchor="end">VCC (5V)</text>
+  <text class="plw" x="418" y="285" text-anchor="end">GND</text>
+  <text class="plw" x="418" y="325" text-anchor="end">TX</text>
+  <text class="plw" x="418" y="365" text-anchor="end">RX</text>
+  <text class="bs" x="62" y="365">OUT (HIGH on presence, not connected)</text>
+
+  <!-- ============ DHT22 ============ -->
+  <rect x="40" y="420" width="400" height="190" rx="12" fill="#0f5c4d"/>
+  <text class="bh" x="62" y="452">DHT22 Sensor</text>
+  <text class="bs" x="62" y="475">Temperature &amp; humidity</text>
+  <text class="plw" x="418" y="525" text-anchor="end">VCC (3.3V)</text>
+  <text class="plw" x="418" y="565" text-anchor="end">DATA</text>
+  <text class="plw" x="418" y="600" text-anchor="end">GND</text>
+
+  <!-- ============ ESP32 ============ -->
+  <rect x="560" y="120" width="400" height="560" rx="12" fill="#e9e9ec" stroke="#d0d0d5"/>
+  <text x="760" y="152" text-anchor="middle" font-size="19" font-weight="700" fill="#1b1b1b">ESP32 DevKit V1</text>
+  <text x="760" y="175" text-anchor="middle" class="small">ESP32-WROOM-32 · 30-pin</text>
+  <!-- left pins -->
+  <text class="pl" x="580" y="245">VIN (5V)</text>
+  <text class="pl" x="580" y="285">GND</text>
+  <text class="pl" x="580" y="325">GPIO16 / RX2</text>
+  <text class="pl" x="580" y="365">GPIO17 / TX2</text>
+  <text class="pl" x="580" y="525">3V3</text>
+  <text class="pl" x="580" y="565">GPIO4</text>
+  <text class="pl" x="580" y="600">GND</text>
+  <!-- right pins -->
+  <text class="pl" x="940" y="245" text-anchor="end">VIN (5V)</text>
+  <text class="pl" x="940" y="285" text-anchor="end">GND</text>
+  <text class="pl" x="940" y="325" text-anchor="end">GPIO26</text>
+  <text class="pl" x="940" y="365" text-anchor="end">GPIO27</text>
+  <text x="760" y="440" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1b1b">GPIO26 → light (CH1)</text>
+  <text x="760" y="464" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1b1b">GPIO27 → fan (CH2)</text>
+  <line x1="660" y1="630" x2="860" y2="630" stroke="#bbb"/>
+  <text x="760" y="655" text-anchor="middle" class="small">VIN shown twice = one pin; all GNDs are common</text>
+
+  <!-- radar wires -->
+  <line class="w v5"  x1="440" y1="240" x2="560" y2="240"/>
+  <line class="w gnd" x1="440" y1="280" x2="560" y2="280"/>
+  <line class="w sig" x1="440" y1="320" x2="560" y2="320"/>
+  <line class="w sig" x1="440" y1="360" x2="560" y2="360"/>
+  <!-- DHT wires -->
+  <line class="w v33" x1="440" y1="520" x2="560" y2="520"/>
+  <line class="w sig" x1="440" y1="560" x2="560" y2="560"/>
+  <line class="w gnd" x1="440" y1="595" x2="560" y2="595"/>
+
+  <g stroke="#fff" stroke-width="1.5">
+    <circle cx="440" cy="240" r="6" fill="#c0392b"/><circle cx="560" cy="240" r="6" fill="#c0392b"/>
+    <circle cx="440" cy="280" r="6" fill="#222"/><circle cx="560" cy="280" r="6" fill="#222"/>
+    <circle cx="440" cy="320" r="6" fill="#2e86c1"/><circle cx="560" cy="320" r="6" fill="#2e86c1"/>
+    <circle cx="440" cy="360" r="6" fill="#2e86c1"/><circle cx="560" cy="360" r="6" fill="#2e86c1"/>
+    <circle cx="440" cy="520" r="6" fill="#e67e22"/><circle cx="560" cy="520" r="6" fill="#e67e22"/>
+    <circle cx="440" cy="560" r="6" fill="#2e86c1"/><circle cx="560" cy="560" r="6" fill="#2e86c1"/>
+    <circle cx="440" cy="595" r="6" fill="#222"/><circle cx="560" cy="595" r="6" fill="#222"/>
+  </g>
+  <text x="500" y="312" text-anchor="middle" font-size="11.5" fill="#2e86c1">TX → RX</text>
+  <text x="500" y="352" text-anchor="middle" font-size="11.5" fill="#2e86c1">RX ← TX</text>
+
+  <!-- ============ Relay module ============ -->
+  <rect x="1080" y="120" width="440" height="270" rx="12" fill="#7b2d22"/>
+  <text class="bh" x="1102" y="152">2-Channel Relay Module</text>
+  <text class="bs" x="1102" y="175">SRD-05VDC-SL-C · active-LOW (IN pulled LOW = ON)</text>
+  <text class="plw" x="1102" y="245">VCC (5V)</text>
+  <text class="plw" x="1102" y="285">GND</text>
+  <text class="plw" x="1102" y="325">IN1 ← light</text>
+  <text class="plw" x="1102" y="365">IN2 ← fan</text>
+
+  <line class="w v5"  x1="960" y1="240" x2="1080" y2="240"/>
+  <line class="w gnd" x1="960" y1="280" x2="1080" y2="280"/>
+  <line class="w sig" x1="960" y1="320" x2="1080" y2="320"/>
+  <line class="w sig" x1="960" y1="360" x2="1080" y2="360"/>
+  <g stroke="#fff" stroke-width="1.5">
+    <circle cx="960" cy="240" r="6" fill="#c0392b"/><circle cx="1080" cy="240" r="6" fill="#c0392b"/>
+    <circle cx="960" cy="280" r="6" fill="#222"/><circle cx="1080" cy="280" r="6" fill="#222"/>
+    <circle cx="960" cy="320" r="6" fill="#2e86c1"/><circle cx="1080" cy="320" r="6" fill="#2e86c1"/>
+    <circle cx="960" cy="360" r="6" fill="#2e86c1"/><circle cx="1080" cy="360" r="6" fill="#2e86c1"/>
+  </g>
+
+  <!-- ============ Relay channels ============ -->
+  <rect x="1080" y="420" width="210" height="130" rx="12" fill="#4a2f7a"/>
+  <text class="bh" x="1100" y="450">CH1: Light</text>
+  <text class="bs" x="1100" y="472">closes when GPIO26 LOW</text>
+  <rect x="1310" y="420" width="210" height="130" rx="12" fill="#4a2f7a"/>
+  <text class="bh" x="1330" y="450">CH2: Fan</text>
+  <text class="bs" x="1330" y="472">closes when GPIO27 LOW</text>
+  <g font-size="13" fill="#fff" text-anchor="middle">
+    <text x="1120" y="500">COM</text><text x="1185" y="500">NO</text><text x="1250" y="500">NC</text>
+    <text x="1350" y="500">COM</text><text x="1415" y="500">NO</text><text x="1480" y="500">NC</text>
+  </g>
+
+  <!-- ============ Breadboard ============ -->
+  <rect x="560" y="720" width="960" height="490" rx="12" fill="#f5f5f5" stroke="#ddd"/>
+  <text x="582" y="752" font-size="17" font-weight="700" fill="#1b1b1b">Breadboard</text>
+  <text x="582" y="774" class="small">Dots mark connections; wires that cross a rail without a dot do not touch it.</text>
+
+  <line x1="600" y1="820" x2="1490" y2="820" stroke="#c0392b" stroke-width="2" stroke-dasharray="3 7"/>
+  <text x="600" y="810" class="small">+5V rail (from ESP32 VIN)</text>
+  <line x1="600" y1="880" x2="1490" y2="880" stroke="#c0392b" stroke-width="2" stroke-dasharray="3 7"/>
+  <text x="600" y="870" class="small">+12V rail (12V adapter +)</text>
+  <line x1="600" y1="1170" x2="1490" y2="1170" stroke="#222" stroke-width="2" stroke-dasharray="3 7"/>
+  <text x="850" y="1160" class="small">GND rail (12V adapter − and ESP32 GND)</text>
+
+  <!-- CH1 COM -> +5V rail -->
+  <line class="w v5" x1="1120" y1="522" x2="1120" y2="820"/>
+  <!-- CH2 COM -> +12V rail -->
+  <line class="w v5" x1="1350" y1="522" x2="1350" y2="880"/>
+
+  <!-- CH1 NO -> LED -> 220R -> GND -->
+  <polyline class="w load" points="1185,522 1185,980 1000,980"/>
+  <!-- LED: anode right (1000), cathode left (962) -->
+  <polygon points="1000,965 1000,995 965,980" fill="#fff" stroke="#8e44ad" stroke-width="2.5"/>
+  <line x1="962" y1="964" x2="962" y2="996" stroke="#8e44ad" stroke-width="2.5"/>
+  <line class="w load" x1="962" y1="980" x2="930" y2="980"/>
+  <polyline class="w load" points="930,980 924,968 912,992 900,968 888,992 876,968 870,980"/>
+  <line class="w load" x1="870" y1="980" x2="820" y2="980"/>
+  <line class="w gnd" x1="820" y1="980" x2="820" y2="1170"/>
+  <text x="982" y="1022" text-anchor="middle" class="small">LED (light)</text>
+  <text x="900" y="1022" text-anchor="middle" class="small">220Ω</text>
+
+  <!-- CH2 NO -> fan -> GND -->
+  <line class="w load" x1="1415" y1="522" x2="1415" y2="1000"/>
+  <rect x="1340" y="1000" width="150" height="70" rx="8" fill="#7b2d22"/>
+  <text x="1415" y="1030" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">12V DC Fan</text>
+  <text x="1415" y="1052" text-anchor="middle" font-size="12" fill="#e6e6e6">+ top · − bottom</text>
+  <line class="w gnd" x1="1415" y1="1070" x2="1415" y2="1170"/>
+
+  <!-- terminal + junction dots -->
+  <g stroke="#fff" stroke-width="1.5">
+    <circle cx="1120" cy="522" r="7" fill="#e67e22"/>
+    <circle cx="1185" cy="522" r="7" fill="#d7a6f0"/>
+    <circle cx="1250" cy="522" r="6" fill="#bbb"/>
+    <circle cx="1350" cy="522" r="7" fill="#e67e22"/>
+    <circle cx="1415" cy="522" r="7" fill="#d7a6f0"/>
+    <circle cx="1480" cy="522" r="6" fill="#bbb"/>
+  </g>
+  <circle cx="1120" cy="820" r="6" fill="#c0392b"/>
+  <circle cx="1350" cy="880" r="6" fill="#c0392b"/>
+  <circle cx="820"  cy="1170" r="6" fill="#222"/>
+  <circle cx="1415" cy="1170" r="6" fill="#222"/>
+
+  <!-- ============ Key ============ -->
+  <rect x="40" y="640" width="400" height="170" rx="12" fill="#f1f1f3" stroke="#ddd"/>
+  <text class="noteb" x="62" y="670">Wire colour key</text>
+  <g stroke-width="3">
+    <line x1="62" y1="695" x2="102" y2="695" stroke="#e67e22"/>
+    <line x1="62" y1="722" x2="102" y2="722" stroke="#c0392b"/>
+    <line x1="62" y1="749" x2="102" y2="749" stroke="#2e86c1"/>
+    <line x1="62" y1="776" x2="102" y2="776" stroke="#8e44ad"/>
+    <line x1="232" y1="695" x2="272" y2="695" stroke="#222"/>
+  </g>
+  <text class="note" x="112" y="700">3.3V supply</text>
+  <text class="note" x="112" y="727">5V / 12V supply</text>
+  <text class="note" x="112" y="754">Digital / UART signal</text>
+  <text class="note" x="112" y="781">Switched load (NO)</text>
+  <text class="note" x="282" y="700">Ground</text>
+
+  <!-- ============ LD2410 notes ============ -->
+  <rect x="40" y="830" width="400" height="230" rx="12" fill="#e6f2ef" stroke="#bcd9d1"/>
+  <text class="noteb" x="62" y="860">LD2410 notes</text>
+  <text class="note" x="62" y="888">• Power from 5V (VIN), not 3V3: needs ≥200 mA.</text>
+  <text class="note" x="62" y="912">• UART is 3.3V logic: no level shifter needed.</text>
+  <text class="note" x="62" y="936">• TX and RX cross over (module TX → ESP32 RX2).</text>
+  <text class="note" x="62" y="960">• Plain LD2410 has 1.27 mm pins; B/C are 2.54 mm.</text>
+  <text class="note" x="62" y="984">• Keep the fan out of the radar's view: moving</text>
+  <text class="note" x="74" y="1004">blades can read as a person.</text>
+  <text class="note" x="62" y="1028">• RD-03D uses the exact same 4 wires (also 5V).</text>
+
+  <!-- ============ Resistor ============ -->
+  <rect x="40" y="1080" width="400" height="130" rx="12" fill="#efe6f8" stroke="#dccbef"/>
+  <text x="62" y="1108" font-size="16" font-weight="700" fill="#3d2466">Resistor selection</text>
+  <text x="62" y="1134" font-size="13.5" fill="#3d2466">R = (Vs − Vf) / If, Vs = 5V, Vf ≈ 2V</text>
+  <text x="62" y="1158" font-size="13.5" fill="#3d2466">100Ω → 30 mA (too much) · 220Ω → 13.6 mA (safe)</text>
+  <text x="62" y="1190" font-size="16" font-weight="700" fill="#3d2466">Chosen: 220Ω</text>
+</svg>
