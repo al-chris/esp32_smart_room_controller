@@ -24,7 +24,7 @@ Two radars are supported and you can switch between them with one line:
 
 ![Wiring diagram](home_automation_wiring_ld2410.png)
 
-Editable sources: [wiring_ld2410.svg](wiring_ld2410.svg) (LD2410) and [wiring_RD-03D.svg](wiring_RD-03D.svg) (RD-03D). The wiring is identical for both radars. The older [home_automation_wiring_white_bg.png](home_automation_wiring_white_bg.png) labels the RD-03D supply as 3.3V, but the datasheet specifies **5V**; use the new diagrams instead.
+Editable sources: [wiring_ld2410.svg](wiring_ld2410.svg) (LD2410) and [wiring_RD-03D.svg](wiring_RD-03D.svg) (RD-03D). The wiring is identical for both radars.
 
 | From | Pin | To ESP32 | Notes |
 |---|---|---|---|
